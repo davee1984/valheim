@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get clean
 
 # Download and install the latest BepInExPack Valheim from Thunderstore
-RUN wget --content-disposition https://thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.2202/ \
+RUN wget --content-disposition https://thunderstore.io/package/download/denikson/BepInExPack_Valheim/5.4.2202/ && \
     unzip denikson-BepInExPack_Valheim-5.4.2202.zip -d /valheim && \
     rm denikson-BepInExPack_Valheim-5.4.2202.zip
 
