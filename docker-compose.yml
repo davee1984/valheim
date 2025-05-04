@@ -1,0 +1,24 @@
+services:
+  valheim-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: valheim-server
+    environment:
+      - SERVER_NAME=YourServerName
+      - WORLD_NAME=YourWorldName
+      - PASSWORD=YourPassword
+      - PORT=2456
+      - PUBLIC=1  # Set to 1 for public server, 0 for private
+    ports:
+      - "2456:2456/udp"  # Game port
+      - "2457:2457/udp"  # Query port
+      - "2458:2458/udp"  # Additional port
+    volumes:
+      - /home/valheim/docker/config:/config  # Configuration files
+      - /home/valheim/docker/BepInEx/plugins:/valheim/BepInEx/plugins  # BepInEx mods
+      - /home/valheim/docker/worlds:/valheim/worlds  # World files
+      - /home/valheim/docker/logs:/config/logs  # Log files
+
+volumes:
+  valheim_data:
